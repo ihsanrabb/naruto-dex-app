@@ -44,9 +44,7 @@ module.exports = {
       remotes: {
         discoveryApp: `discoveryApp@http://localhost:3003/_next/static/chunks/remoteEntry.js`,
       },
-      exposes: {
-        './counter': './src/components/Counter.tsx'
-      },
+      exposes: {},
       shared: {
         ...deps,
         react: {
@@ -58,7 +56,8 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', './src/index.html')
+      template: path.resolve(__dirname, '..', './src/index.html'),
+      excludeChunks: ['narutoApp'],
     })
   ]
 }
