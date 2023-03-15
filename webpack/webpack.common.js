@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.tsx'),
@@ -36,6 +37,14 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
+    new ModuleFederationPlugin({
+      name: "narutoApp",
+      filename: "remoteEntry.js",
+      remotes: {},
+      exposes: {
+        './counter': './src/components/Counter.tsx'
+      },
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', './src/index.html')
     })

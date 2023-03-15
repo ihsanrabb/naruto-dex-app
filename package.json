@@ -5,7 +5,7 @@
   "author": "ihsanuddin.rabbani <ihsanuddin.rabbani@stockbit.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack serve --config webpack/webpack.config.js --env NODE_ENV=dev --open",
+    "start": "webpack serve --config webpack/webpack.config.js --env NODE_ENV=dev",
     "build": "webpack --config webpack/webpack.config.js --env NODE_ENV=prod"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.0",
+    "module-federation-plugin": "^0.8.4",
     "style-loader": "^3.3.2",
     "typescript": "^4.9.5",
     "webpack": "^5.76.1",
