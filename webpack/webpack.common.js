@@ -42,11 +42,9 @@ module.exports = {
       name: "narutoApp",
       filename: "remoteEntry.js",
       remotes: {
-        discoveryApp: `discoveryApp@http://localhost:3003/_next/static/chunks/remoteEntry.js`,
+        discoveryApp: `discoveryApp@https://discovery-app.vercel.app/_next/static/chunks/remoteEntry.js`,
       },
-      exposes: {
-        './counter': './src/components/Counter.tsx'
-      },
+      exposes: {},
       shared: {
         ...deps,
         react: {
@@ -58,7 +56,8 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', './src/index.html')
+      template: path.resolve(__dirname, '..', './src/index.html'),
+      excludeChunks: ['narutoApp'],
     })
   ]
 }
