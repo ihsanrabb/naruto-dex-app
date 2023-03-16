@@ -5,6 +5,11 @@ on:
       - 'v*'
   workflow_dispatch:
 
+permissions:
+  contents: 'read'
+  id-token: 'write'
+  issues: 'write
+
 jobs:
   release:
     strategy:
