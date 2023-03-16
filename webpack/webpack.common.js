@@ -42,7 +42,7 @@ module.exports = {
       name: "narutoApp",
       filename: "remoteEntry.js",
       remotes: {
-        discoveryApp: `discoveryApp@http://localhost:3003/_next/static/chunks/remoteEntry.js`,
+        discoveryApp: `discoveryApp@https://discovery-app.vercel.app/_next/static/chunks/remoteEntry.js`,
       },
       exposes: {},
       shared: {

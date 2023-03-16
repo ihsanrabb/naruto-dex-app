@@ -2,7 +2,7 @@ import { useEffect, useState, lazy, Suspense } from 'react';
 import './styles.css'
 
 //@ts-ignore
-const Nav = lazy(() => import('discoveryApp/nav'));
+const ClanList = lazy(() => import('discoveryApp/clan-list'));
 
 const App = () => {
   const [characterList, setCharacterList] = useState([]);
@@ -32,7 +32,7 @@ const App = () => {
       {isLoading && <h3>Loading Character...</h3>}
       <div className='list-wrapper'>
         {characterList.slice(0,20).map((item: any) => (
-          <div className='list-item'>
+          <div className='list-item' key={item.id}>
             <img 
               src={item.images[0]}
               alt="character" 
@@ -42,9 +42,10 @@ const App = () => {
           </div>  
         ))}
       </div>
-      {/* <Suspense fallback={<div>Loading...</div>}>
-        <Nav />
-      </Suspense> */}
+      <div style={{ height: '30px' }} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ClanList />
+      </Suspense>
     </div>
   )
 }
